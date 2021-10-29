@@ -91,11 +91,26 @@ const createPhoneNum = (numbers) => {
 // Test.assertEquals(duplicateCount("Indivisibility"), 1)
 // Test.assertEquals(duplicateCount("Indivisibilities"), 2, "characters may not be adjacent")
 
+
+
 const duplicateCount =(text) => {
-    // console.log(text.toLowerCase().split('').sort().join('').match(/(.)\1+/g).length);
+    // console.log(text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length);
+    let dupCount = 0;
+    let dupChar = {};
+    let textArray = text.toLowerCase().split('');
+    textArray.forEach(function(x) {
+        dupChar[x] = (dupChar[x] || 0) + 1;
+    });
 
+    let obValues = Object.values(dupChar);
+    for(let i = 0 ; i < obValues.length ; i++ ){
+        if(obValues[i] > 1){
+            dupCount++;
+        }
+    }
 
-  }
+            console.log(dupCount);
+        }
 
 //   duplicateCount('aaabccBdAdd');
  
@@ -397,4 +412,14 @@ const uniqueInOrder = (iterable) => {
   }
 
 // uniqueInOrder('AAAABBBCCDAABBB')
-uniqueInOrder([1,2,2,3,3,1])       
+// uniqueInOrder([1,2,2,3,3,1])       
+
+// SUM OF ODD NUMBERS GIVEN A TRIANGLE
+const rowSumOddNumbers = (n) => {
+    // TODO
+    console.log(Math.pow(n,3));
+    // or
+    console.log(n*n*n);
+}
+
+rowSumOddNumbers(2);
