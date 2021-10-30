@@ -514,7 +514,7 @@ const iqTest = (numbers) => {
 //     oddCount < evenCount ? 
   }
 
-  iqTest("2 4 7 8 10")
+//   iqTest("2 4 7 8 10")
 // iqTest("1 2 1 1")
 
 // another solution
@@ -527,3 +527,17 @@ const iqTest = (numbers) => {
     
 //     return odd.length < even.length ? (numbers.indexOf(odd[0]) + 1) : (numbers.indexOf(even[0]) + 1);
 //   }
+
+// BREAK CAMELCASE 
+// Complete the solution so that the function will break up camel casing, using a space between words.
+
+// Example
+// "camelCasing"  =>  "camel Casing"
+// "identifier"   =>  "identifier"
+// ""             =>  ""
+
+const breakCase = (string) => {
+    console.log(string.replace(/([A-Z]+)/g,' $1'));
+}
+
+breakCase('camelcase');
