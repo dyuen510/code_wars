@@ -674,3 +674,19 @@ const spinWords = (string) => {
 //       return (word.length > 4) ? word.split('').reverse().join('') : word;
 //     }).join(' ');
 //   }
+
+// FIND MISSING LETTER 
+const findMissingLetter = (arr) => {
+    for(let i = 0; i<arr.length; i++){
+        const curr = arr[i].charCodeAt(0);
+        const next = arr[i+1].charCodeAt(0);
+
+        if(curr + 1 !== next) {
+            return String.fromCharCode(curr+1);
+        }
+    }
+}
+
+// IP VALIDATION
+const isValidIP = (str) => { 
+    return str.split('.').filter((v) => { v==Number(v).toString() && Number(v) < 256 && Number(v) >= 0}).length == 4}
