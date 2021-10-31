@@ -540,4 +540,104 @@ const breakCase = (string) => {
     console.log(string.replace(/([A-Z]+)/g,' $1'));
 }
 
-breakCase('camelcase');
+// breakCase('camelcase');
+
+// What's a Perfect Power anyway?
+
+// A perfect power is a classification of positive integers:
+
+// In mathematics, a perfect power is a positive integer that can be expressed as 
+// an integer power of another positive integer. More formally, n is a perfect power 
+// if there exist natural numbers m > 1, and k > 1 such that mk = n.
+
+// Your task is to check wheter a given integer is a perfect power. If it is a perfect power, 
+// return a pair m and k with mk = n as a proof. Otherwise return Nothing, Nil, null, NULL, 
+// None or your language's equivalent.
+
+// Note: For a perfect power, there might be several pairs. For example 81 = 3^4 = 9^2, so 
+// (3,4) and (9,2) are valid solutions. However, the tests take care of this, so if a number is a 
+// perfect power, return any pair that proves it.
+
+// Examples
+// Test.describe("perfect powers", function(){
+//   Test.it("should work for some examples",function(){
+//     Test.assertSimilar(isPP(4), [2,2], "4 = 2^2");
+//     Test.assertSimilar(isPP(9), [3,2], "9 = 3^2");
+//     Test.assertEquals( isPP(5), null, "5 isn't a perfect number");
+//   });
+// });
+
+const isPP = (n) => {
+    let PP = [];
+
+    for (let i = 0; i<n.length; i++){
+        for(let j = 0; j<n.length; j++){
+            if(Math.pow(i,j) == n){
+                PP.push(i,j)
+            }
+        }
+    }
+    if(PP.length == 0){
+        console.log(`${n} isn't a perfect number`);
+
+    }else{
+    console.log(`${n} = ${PP[0]}^${PP[1]}`);
+    // return null; 
+    }
+  }
+
+//   isPP(5,6,9);
+
+// FIRST NON CONSECUTIVE 
+const firstNonConsecutive = (arr) => {
+    for(let i =0; i<arr.length - 1; i++){
+        let curr = arr[i];
+        let next = arr[i+1];
+
+        if(curr + 1 !== next) {
+            console.log(next);
+        }
+    }
+    console.log(null)
+}
+
+//No oddities here
+const noOdds = (values) => {
+ let oddArr = [];
+
+ for(let i = 0 ; i<=values.length; i++){
+    //  console.log(values[i]);
+     if(values[i] % 2 === 0){
+         oddArr.push(values[i]);
+     }
+ }
+ console.log(oddArr);
+}
+
+// noOdds([0,1,2,3])
+
+// filter method
+const noOddsFilter = (values) => {
+    return values.filter(val => val % 2 === 0)
+}
+
+//Consonant Value
+const solve = (s) => {
+    console.log(Math.max(...s.replace(/[aeiou]+/g, ' ').trim()
+    .split(' ').map(addUpSubstr)));
+}
+
+const charToValue = (c) => {
+    return c.charCodeAt(0) - 96;
+}
+
+const addUpSubstr = (str) => {
+    return str.split('').map(charToValue).reduce((acc, item) => acc += item, 0);
+}
+// solve('zodiac');
+// another example
+// const solve = (s) => s.split(/[aeiou]+/).reduce((s,n) => Math.max(s, n.split('').reduce((a,b) => a + b.charCodeAt(0) - 96, 0)),0)
+// with match example
+// const solve = (s) => Math.max(...s.match(/[^aeiou]+/g).map(x => [...x].reduce((s,v) => s + v.charCodeAt() - 96, 0)))
+
+
