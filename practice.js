@@ -755,3 +755,16 @@ const towerBuilder = (nFloors) => {
 //       return spaces + '*'.repeat(k + k + 1) + spaces;
 //     });
 //   }
+
+// LONGEST VOWEL CHAIN
+function solves(s){
+    // let vowels = 'aeiou';
+    let arrayNoVowels = s.replace(/[^aeiou]/g,' ').split(' ');
+    let filterArr = arrayNoVowels.filter(Boolean);
+    let lengthOfItem = filterArr.map(item => item.length);
+    console.log(Math.max(...lengthOfItem));
+    
+   }
+
+// another example 
+// const solve = s => s.split(/[^aeiou]/).reduce((s,n)=> Math.max(s,n.length),0);
