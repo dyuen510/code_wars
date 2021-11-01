@@ -690,3 +690,24 @@ const findMissingLetter = (arr) => {
 // IP VALIDATION
 const isValidIP = (str) => { 
     return str.split('.').filter((v) => { v==Number(v).toString() && Number(v) < 256 && Number(v) >= 0}).length == 4}
+
+// TWO BIGGEST NUM
+const diffBig2 = (arr) => {
+    let sum = 0;
+    let base = 0;
+    let highNum = Math.max(...arr);
+    let splicedArr = arr.splice(arr.indexOf(highNum), 1);
+    console.log(arr);
+  
+    // console.log(highNum)
+    for(let i = 0 ; i<=arr.length; i++){
+        if(arr[i] === highNum || arr[i] > base){
+            base = arr[i];
+        //   console.log(base);
+        }
+    }
+
+    console.log(highNum - base);
+}
+
+diffBig2([1,8,3,8])
