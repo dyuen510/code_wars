@@ -710,4 +710,48 @@ const diffBig2 = (arr) => {
     console.log(highNum - base);
 }
 
-diffBig2([1,8,3,8])
+// diffBig2([1,8,3,8])
+// another example
+// const diffBig2 = arr => {
+//     let max = Math.max(...arr);
+//     arr.splice(arr.indexOf(max), 1);
+//     return max - Math.max(...arr);
+//   }
+
+// BUILD TOWER
+// for example, a tower of 3 floors looks like below
+
+// [
+//   '  *  ', 
+//   ' *** ', 
+//   '*****'
+// ]
+// and a tower of 6 floors looks like below
+
+// [
+//   '     *     ', 
+//   '    ***    ', 
+//   '   *****   ', 
+//   '  *******  ', 
+//   ' ********* ', 
+//   '***********'
+// ]
+const towerBuilder = (nFloors) => {
+    // build here
+    var tower = [];
+    for (var i = 0; i < nFloors; i++) {
+    tower.push(" ".repeat(nFloors - i - 1)
+    + "*".repeat((i * 2)+ 1)
+    + " ".repeat(nFloors - i - 1))
+    }
+    console.log(tower);
+}
+
+//   towerBuilder(5);
+// another example
+// function towerBuilder(n) {
+//     return Array.from({length: n}, function(v, k) {
+//       const spaces = ' '.repeat(n - k - 1);
+//       return spaces + '*'.repeat(k + k + 1) + spaces;
+//     });
+//   }
