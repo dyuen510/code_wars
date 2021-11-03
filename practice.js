@@ -768,3 +768,107 @@ function solves(s){
 
 // another example 
 // const solve = s => s.split(/[^aeiou]/).reduce((s,n)=> Math.max(s,n.length),0);
+
+// +1 Array
+// Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
+
+// the array can't be empty
+// only non-negative, single digit integers are allowed
+// Return nil (or your language's equivalent) for invalid inputs.
+
+// Examples
+// For example the array [2, 3, 9] equals 239, adding one would return the array [2, 4, 0].
+
+// [4, 3, 2, 5] would return [4, 3, 2, 6]
+
+// Test.assertSimilar(upArray([2,3,9]), [2,4,0]);
+// Test.assertSimilar(upArray([4,3,2,5]), [4,3,2,6]);
+// Test.assertSimilar(upArray([1,-9]), null);
+
+const upArray = (arr) => {
+  let splitArr = arr.join('').split(' ');
+  let newArray = [];
+
+  if(arr.length == 0){
+      newArray.push(1);
+  }else if(splitArr.includes('-')) {
+      console.log(null);
+  }else{
+      let oneArray = (parseInt(splitArr) + 1);
+      let strArray = oneArray.toString().split('');
+      strArray.map(item => newArray.push(item));
+    //   console.log(strArray);
+  }
+  console.log(newArray);
+}
+
+// upArray([4,3,2,5])
+
+var FilterString = function(value) {
+    //Complete this function :)
+    let number = value.replace(/[^0-9]/g,'');
+    console.log(number)
+    
+  }
+
+//   FilterString("aa1bb2cc443dd")
+
+
+// VASYA-CLERK
+// The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing 
+// in a huge line. Each of them has a single 100, 50 or 25 dollar bill. An "Avengers" ticket costs 25 dollars.
+
+// Vasya is currently working as a clerk. He wants to sell a ticket to every single person in this line.
+
+// Can Vasya sell a ticket to every person and give change if he initially has no money and sells the tickets strictly in the order people queue?
+
+// Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO.
+
+const tickets = (peopleInLine) => {
+    
+    let changeNotes = {
+        '25' : 0,
+        '50' : 0,
+        '100': 0
+    }
+
+    for(let i = 0; i<peopleInLine.length; i++){
+        if(peopleInLine[i] === 25){
+            changeNotes['25'] += 1;
+        }else if(peopleInLine[i] === 50){
+            if(changeNotes['25'] >= 1){
+                changeNotes['50'] += 1;
+                changeNotes['25'] -= 1;
+            }else{
+                console.log('NO');
+            }
+        }else if(peopleInLine[i] === 100){
+            if(changeNotes['50'] >= 1 && changeNotes['25'] >= 1){
+                changeNotes['100'] += 1;
+                changeNotes['50'] -= 1;
+                changeNotes['25'] -= 1;
+            }else if(changeNotes['25'] >= 3){
+                changeNotes['100'] += 1;
+                changeNotes['25'] -= 3;
+            }else{
+                console.log('NO');
+            }
+        }
+    }   
+   
+}
+// tickets([25,25,25,100,25,50,25,100,25,25,50,100,25,25,25,100,50,25])
+
+const doubleChar = (str) => {
+    let newArr = [];
+    splitStr = str.split('');
+    // console.log(splitStr);
+    for(let i = 0; i<=splitStr.length; i++){
+        newArr.push(splitStr[i], splitStr[i]);
+    }
+
+    console.log(newArr.join(''));
+
+}
+
+doubleChar('aabbccdd');
