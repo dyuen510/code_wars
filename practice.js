@@ -938,12 +938,45 @@ const kebabize = (str) => {
     }
 }
 
-function kebabize(str) {
+// function kebabize(str) {
 
-    var nonumber = str.replace(/\d/g, '').split(/(?=[A-Z])/g);
-    return nonumber.join('-').toLowerCase();
+//     var nonumber = str.replace(/\d/g, '').split(/(?=[A-Z])/g);
+//     return nonumber.join('-').toLowerCase();
   
-  }
+//   }
 // kebabize('camelsHaveThreeHumps');
 // kebabize('camelsHave3Humps')
 // kebabize('Awga-o');
+
+let arr = [':)', ';(', ';}'];
+
+for(let i = 0 ; i<arr.length; i++){
+    console.log(arr[i][0]);
+}
+
+// COUNT SMILEY FACES
+// Rules for a smiling face:
+
+// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+// Every smiling face must have a smiling mouth that should be marked with either ) or D
+// No additional characters are allowed except for those mentioned.
+
+// Valid smiley face examples: :) :D ;-D :~)
+// Invalid smiley faces: ;( :> :} :]
+
+const countSmileys = (arr) => {
+    let count = 0;
+    let validSmileys = [':)',';)',':D',';D',':-D',';-D',':~D',';~D',':-)',';-)',':~)',';~)'];
+    if(arr.length === 0) {
+        console.log(0);
+    }
+    for(let smileys of arr) {
+        if(validSmileys.includes(smileys)){
+            count++;
+        }
+    }
+    console.log(count);
+}
+
+countSmileys([':D',':~)',';~D',':)'])
