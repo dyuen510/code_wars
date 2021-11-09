@@ -905,19 +905,19 @@ const isPangram = (str) => {
 //   }
 
 //DELETE OCCURRENCES OF AN ELEMENT IF IT OCCURS MORE THAN N TIMES
-const deleteNth = (arr, n) => {
-    let count = {};
-    let arr = [];
+// const deleteNth = (arr, n) => {
+//     let count = {};
+//     let arr = [];
 
-    for(let num of arr){
-        count[num] = count[num] ? count[num] + 1 : 1;
+//     for(let num of arr){
+//         count[num] = count[num] ? count[num] + 1 : 1;
 
-        if(count[num] <= n) {
-            arr.push(num);
-        }
-    }
-    console.log(arr);
-}
+//         if(count[num] <= n) {
+//             arr.push(num);
+//         }
+//     }
+//     console.log(arr);
+// }
 // OTHER SOLUTIONS
 function deleteNth(arr,x) {
     var cache = {};
@@ -926,3 +926,24 @@ function deleteNth(arr,x) {
       return cache[n] <= x;
     });
   }
+
+// KEBABIZE
+// kebabize('camelsHaveThreeHumps') // camels-have-three-humps
+// kebabize('camelsHave3Humps') // camels-have-humps
+
+const kebabize = (str) => {
+    let capStr = str.replace(/([A-Z])/g, '-$1').trim().toLowerCase().replace(/[0-9]/g,'');
+    if(capStr[0] === '-'){
+        capStr = capStr.substring(1);
+    }
+}
+
+function kebabize(str) {
+
+    var nonumber = str.replace(/\d/g, '').split(/(?=[A-Z])/g);
+    return nonumber.join('-').toLowerCase();
+  
+  }
+// kebabize('camelsHaveThreeHumps');
+// kebabize('camelsHave3Humps')
+// kebabize('Awga-o');
