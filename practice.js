@@ -903,3 +903,26 @@ const isPangram = (str) => {
 //       return string.indexOf(x) !== -1;
 //     });
 //   }
+
+//DELETE OCCURRENCES OF AN ELEMENT IF IT OCCURS MORE THAN N TIMES
+const deleteNth = (arr, n) => {
+    let count = {};
+    let arr = [];
+
+    for(let num of arr){
+        count[num] = count[num] ? count[num] + 1 : 1;
+
+        if(count[num] <= n) {
+            arr.push(num);
+        }
+    }
+    console.log(arr);
+}
+// OTHER SOLUTIONS
+function deleteNth(arr,x) {
+    var cache = {};
+    return arr.filter(function(n) {
+      cache[n] = (cache[n]||0) + 1;
+      return cache[n] <= x;
+    });
+  }
